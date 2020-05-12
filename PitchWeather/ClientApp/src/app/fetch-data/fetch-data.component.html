@@ -1,24 +1,22 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<div *ngIf="!weather">
+  <h1>Loading</h1>
+</div>
 
-<p>This component demonstrates fetching data from the server.</p>
-
-<p *ngIf="!forecasts"><em>Loading...</em></p>
-
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.date }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="weather">
+  <h1>{{weather.name}} Weather forecast</h1>
+  <h4>Name : {{weather.name}}</h4>
+  <h4>Latitude : {{ weather.coord.lat }}</h4>
+  <h4>Longitude : {{ weather.coord.lon }}</h4>
+  <h4>Weather : {{ weather.weather[0].main }}</h4>
+  <h4>Description : {{ weather.weather[0].description }}</h4>
+  <h4>Cloud Percentage : {{ weather.clouds.all }}</h4>
+  <h4>Temperature : {{ weather.main.temp }}</h4>
+  <h4>Temperature Min : {{ weather.main.temp_min }}</h4>
+  <h4>Temperature Max : {{ weather.main.temp_max }}</h4>
+  <h4>Humidity : {{ weather.main.humidity }}</h4>
+  <h4>Feels Like : {{ weather.main.feels_like }}</h4>
+  <h4>Wind Speed : {{ weather.wind.speed }}</h4>
+  <h4>Wind Heading : {{ weather.wind.deg }}</h4>
+  <h4>Sunrise : {{ weather.sys.sunrise }}</h4>
+  <h4>Sunset : {{ weather.sys.sunset }}</h4>
+</div>
