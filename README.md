@@ -1,3 +1,3 @@
 # Pitch Weather
 
-## Integration and Translation of WUndergroun API
+## Integration and Translation of Weather API
