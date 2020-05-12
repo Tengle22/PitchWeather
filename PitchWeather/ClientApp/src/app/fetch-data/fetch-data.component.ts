@@ -9,7 +9,9 @@ export class FetchDataComponent {
   public forecasts: WeatherForecast[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
+    http.get<WeatherForecast[]>('api.openweathermap.org/data/2.5/weather?zip=19382,US&appid=af380e2dc4a21a7a6f4a1499de0c8595').subscribe(result => {
+      console.log(result);
+      console.log('hi');
       this.forecasts = result;
     }, error => console.error(error));
   }
